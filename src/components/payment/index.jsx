@@ -57,10 +57,8 @@ const Payment = () => {
               </div>
             </div>
             {donation ? (
-              <div className='bank-info'>
-                <div className="bank-detail">
-                  <BankInfo />
-                </div>
+              <div className='bank-detail'>
+                <BankInfo />
               </div>
             ) :
               (
