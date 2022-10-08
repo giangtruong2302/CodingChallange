@@ -6,8 +6,11 @@ import bank from '../../../public/visa-2.svg'
 import { Check, CheckCircle } from "phosphor-react";
 import Rates from './rates';
 import { Footer } from 'antd/lib/layout/layout';
+import BankInfo from './bank-info';
 const Payment = () => {
+  const [donation, setDonation] = React.useState(false)
   const success = () => {
+    setDonation(true)
     Modal.success({
       icon: (<CheckCircle weight="fill" size={56} color="#DFF6DE" />),
       centered: true,
@@ -17,9 +20,18 @@ const Payment = () => {
           <Typography.Text>Xin chân thành cảm ơn sự ủng hộ của Quý khách</Typography.Text>
         </>
       ),
-      footer: (
-        <Button size="large" color="#FFBB00">OK</Button>
-      )
+    });
+  };
+  const fail = () => {
+    Modal.error({
+      icon: (<CheckCircle weight="fill" size={56} color="#DFF6DE" />),
+      centered: true,
+      content: (
+        <>
+          <Typography.Title level={5}>Đã có lỗi thanh toán</Typography.Title>
+          <Typography.Text>Thanh toán thất bại vui lòng thử lại</Typography.Text>
+        </>
+      ),
     });
   };
   return (
@@ -44,12 +56,23 @@ const Payment = () => {
                 </div>
               </div>
             </div>
-            <div className='bank-info'>
-              <div>
-                Chọn số tiền quyên góp
+            {donation ? (
+              <div className='bank-info'>
+                <div className="bank-detail">
+                  <BankInfo />
+                </div>
               </div>
-              <Rates />
-            </div>
+            ) :
+              (
+                <div className='bank-info'>
+                  <div>
+                    Chọn số tiền quyên góp
+                  </div>
+                  <Rates />
+                </div>
+              )
+            }
+
           </div>
         </Col>
       </Row>

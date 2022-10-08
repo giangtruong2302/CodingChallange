@@ -6,7 +6,7 @@ const Rates = () => {
   return (
     <>
       <Space size={[8, 16]} wrap>
-        {new Array(10).fill(null).map(
+        {new Array(9).fill(null).map(
           (
             _,
             index,
