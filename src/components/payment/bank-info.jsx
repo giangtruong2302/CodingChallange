@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@mantine/core'
+import { Button, Text } from '@mantine/core'
 
 const BankInfo = () => {
   return (
@@ -11,7 +11,7 @@ const BankInfo = () => {
           <div className="tai-khoan-title">Số tài khoản</div>
           <div className="tai-khoan-content">191415477</div>
         </div>
-        <div className="btn-copy-stk"><Button>Copy STK</Button></div>
+        <div className="btn-copy-stk"><Button color={"gray"} className="btn-copy-stk"><Text color="black" >Copy STK</Text></Button></div>
       </div>
       <div>
         <div>

@@ -1,12 +1,14 @@
 import React from 'react'
-import { Button, Col, Row, Space, Typography, Modal } from 'antd';
+import { Typography, Modal } from 'antd';
 import visa from '../../../public/visa.svg'
+import { Button, SimpleGrid, Text, createStyles } from '@mantine/core'
 import Image from 'next/image';
 import bank from '../../../public/visa-2.svg'
 import { Check, CheckCircle } from "phosphor-react";
 import Rates from './rates';
 import { Footer } from 'antd/lib/layout/layout';
 import BankInfo from './bank-info';
+
 const Payment = () => {
   const [donation, setDonation] = React.useState(false)
   const success = () => {
@@ -36,51 +38,54 @@ const Payment = () => {
   };
   return (
     <>
-      <Row>
-        <Col span={24} >
-          <div className="payment-container">
-            <div className='payment-tiltle'> <Typography.Title level={3}>Ủng hộ chống dịch covid 19</Typography.Title></div>
-            <div className='payment-method'>
-              <div className='payment-method-title'>
-                <Typography.Title level={5}>Chọn hình thức quyên góp</Typography.Title>
+      <SimpleGrid span={12}>
+        <div className="payment-container">
+          <div className='payment-tiltle'> <Typography.Title level={3}>Ủng hộ chống dịch covid 19</Typography.Title></div>
+          <div className='payment-method'>
+            <div className='payment-method-title'>
+              <Typography.Title level={5}>Chọn hình thức quyên góp</Typography.Title>
+            </div>
+            <div className='payment-method-content'>
+              <div className='method-visa'>
+                <Image src={visa} width={30} height={24} alt="visa-method" /> <Typography.Text>Visa</Typography.Text>
               </div>
-              <div className='payment-method-content'>
-                <div className='method-visa'>
-                  <Image src={visa} width={30} height={24} alt="visa-method" /> <Typography.Text>Visa</Typography.Text>
+              <div className='method-banking'>
+                <div className="banking">
+                  <Image src={bank} width={24} height={24} alt="visa-method" /> <Typography.Text>Chuyển khoản ngân hàng</Typography.Text>
                 </div>
-                <div className='method-banking'>
-                  <div className="banking">
-                    <Image src={bank} width={24} height={24} alt="visa-method" /> <Typography.Text>Chuyển khoản ngân hàng</Typography.Text>
-                  </div>
-                  <Check size={32} />
-                </div>
+                <Check size={32} />
               </div>
             </div>
-            {donation ? (
-              <div className='bank-detail'>
-                <BankInfo />
-              </div>
-            ) :
-              (
-                <div className='bank-info'>
-                  <div>
-                    Chọn số tiền quyên góp
-                  </div>
-                  <Rates />
-                </div>
-              )
-            }
-
           </div>
-        </Col>
-      </Row>
+          {donation ? (
+            <div className='bank-detail'>
+              <BankInfo />
+            </div>
+          ) :
+            (
+              <div className='bank-info'>
+                <div>
+                  Chọn số tiền quyên góp
+                </div>
+                <Rates />
+              </div>
+            )
+          }
+
+        </div>
+
+      </SimpleGrid>
       <Footer>
-        <Button size="large" block className="btn-process"
-          onClick={success}
-        >Tiến hành thanh toán</Button>
+        <SimpleGrid span={12}>
+          <Button
+            className="btn-pay"
+            onClick={success}
+          ><Text size={"sm"} color="black">Tiến hành thanh toán</Text></Button>
+        </SimpleGrid>
       </Footer>
     </>
   )
 }
+
 
 export default Payment
