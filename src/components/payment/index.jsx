@@ -11,6 +11,7 @@ import BankInfo from './bank-info';
 
 const Payment = () => {
   const [donation, setDonation] = React.useState(false)
+  const [payWithVisa, setPayWithVisa] = React.useState(true)
   const success = () => {
     setDonation(true)
     Modal.success({
@@ -40,24 +41,29 @@ const Payment = () => {
     <>
       <SimpleGrid span={12}>
         <div className="payment-container">
-          <div className='payment-tiltle'> <Typography.Title level={3}>Ủng hộ chống dịch covid 19</Typography.Title></div>
+          <div className='payment-tiltle'> <Typography.Title level={3}>Ủng hộ chống dịch Covid 19</Typography.Title></div>
           <div className='payment-method'>
             <div className='payment-method-title'>
               <Typography.Title level={5}>Chọn hình thức quyên góp</Typography.Title>
             </div>
-            <div className='payment-method-content'>
-              <div className='method-visa'>
-                <Image src={visa} width={30} height={24} alt="visa-method" /> <Typography.Text>Visa</Typography.Text>
-              </div>
-              <div className='method-banking'>
+            <div className='payment-method-content' >
+              <div className='method-visa' onClick={() => { setPayWithVisa(true) }}>
                 <div className="banking">
-                  <Image src={bank} width={24} height={24} alt="visa-method" /> <Typography.Text>Chuyển khoản ngân hàng</Typography.Text>
+                  <Image src={visa} width={34} height={24} alt="visa-method" /> <Typography.Text>Visa</Typography.Text>
                 </div>
-                <Check size={32} />
+                {payWithVisa ? (<Check size={28} />) : (null)}
+              </div>
+
+              <div className='method-banking' onClick={() => { setPayWithVisa(false) }}>
+                <div className="banking">
+                  <Image src={bank} width={34} height={34} alt="visa-method" /> <Typography.Text>Chuyển khoản ngân hàng</Typography.Text>
+                </div>
+                {!payWithVisa ? (<Check size={28} />) : (null)}
+
               </div>
             </div>
           </div>
-          {donation ? (
+          {!payWithVisa ? (
             <div className='bank-detail'>
               <BankInfo />
             </div>
