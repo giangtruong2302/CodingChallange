@@ -20,7 +20,7 @@ const Payment = () => {
       IconClose: false,
       centered: true,
       withCloseButton: false,
-      title: (<ThemeIcon size={56} color={"#DFF6DE"} radius={"50%"}><Check weight="fill" size={40} color="green" /></ThemeIcon>),
+      title: (<ThemeIcon size={56} color={"#DFF6DE"} radius={"50%"}><Check weight="fill" size={24} color="#26AA53" /></ThemeIcon>),
       innerProps: {
         titleBody: "Thanh toán thành công",
         modalBody:
@@ -35,7 +35,7 @@ const Payment = () => {
       IconClose: false,
       centered: true,
       withCloseButton: false,
-      title: (<ThemeIcon size={56} color={"#FBE2E2"} radius={"50%"}><Warning weight="fill" size={40} color="red" /></ThemeIcon>),
+      title: (<ThemeIcon size={56} color={"#FBE2E2"} radius={"50%"}><Warning weight="fill" size={25} color="#AD0000" /></ThemeIcon>),
       innerProps: {
         titleBody: "Đã có lỗi thanh toán",
         modalBody:

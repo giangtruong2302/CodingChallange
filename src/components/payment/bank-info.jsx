@@ -67,7 +67,7 @@ const BankInfo = () => {
                     }),
                   });
                   copy();
-                  callAPI();
+                  // callAPI();
                 }
                 }
               ><Text color="black" >{copied ? <div className="flex flex-row"><IconCheck />{"Copied STK"}</div> : 'Copy STK'}</Text></Button>
