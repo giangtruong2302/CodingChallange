@@ -7,8 +7,8 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: "/api/:path*",
-        destination: "https://api.example.com/:path*",
+        source: "bank*",
+        destination: "https://be-homework.vercel.app/api/bank/api/:path*",
       },
     ];
   },

@@ -17,11 +17,11 @@ const BankInfo = () => {
   useEffect(() => {
   }, [])
   return (
-    <div className="bank-info-content">
-      <div className="bank-info-title">Chi nhánh ngân hàng</div>
-      <div className="bank-info-description">Ngân hàng TMCP Việt Nam thịnh vượng (VP Bank) Hội sở</div>
-      <div className="tai-khoan-info">
-        <div className="tai-khoan-info-content">
+    <div className="flex flex-col bg-white gap-3 pt-5 pl-3 pr-5 pb-3">
+      <div className=" text-slate-300 text-sm">Chi nhánh ngân hàng</div>
+      <div className="text-sm">Ngân hàng TMCP Việt Nam thịnh vượng (VP Bank) Hội sở</div>
+      <div className="flex flex-row justify-between">
+        <div>
           <div className="tai-khoan-title">Số tài khoản</div>
           <div className="tai-khoan-content">{accountNumber}</div>
         </div>

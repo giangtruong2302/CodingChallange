@@ -40,22 +40,22 @@ const Payment = () => {
   return (
     <>
       <SimpleGrid span={12}>
-        <div className="payment-container">
-          <div className='payment-tiltle'> <Typography.Title level={3}>Ủng hộ chống dịch Covid 19</Typography.Title></div>
-          <div className='payment-method'>
-            <div className='payment-method-title'>
+        <div className="flex flex-col h-screen bg-slate-100">
+          <div className='bg-white pt-5 pl-3 pb-0 pr-3 top-0 sticky z-10'> <Typography.Title level={3}>Ủng hộ chống dịch Covid 19</Typography.Title></div>
+          <div className='flex flex-col'>
+            <div className='p-2 font-bold text-black'>
               <Typography.Title level={5}>Chọn hình thức quyên góp</Typography.Title>
             </div>
-            <div className='payment-method-content' >
-              <div className='method-visa' onClick={() => { setPayWithVisa(true) }}>
-                <div className="banking">
-                  <Image src={visa} width={34} height={24} alt="visa-method" /> <Typography.Text>Visa</Typography.Text>
+            <div className='flex flex-col bg-white' >
+              <div className='flex flex-row justify-between pl-3 pr-3 pt-2 pb-2  border-b-slate-100 border-b-2 border-b-solid h-max justify-items-center' onClick={() => { setPayWithVisa(true) }}>
+                <div className="flex flex-row gap-3.5 ">
+                  <Image src={visa} width={34} height={28} alt="visa-method" /> <Typography.Text >Visa</Typography.Text>
                 </div>
                 {payWithVisa ? (<Check size={28} />) : (null)}
               </div>
 
-              <div className='method-banking' onClick={() => { setPayWithVisa(false) }}>
-                <div className="banking">
+              <div className='flex flex-row justify-between  border-b-slate-100 border-b-2 border-b-solid pl-3 pr-3 pt-2 pb-2' onClick={() => { setPayWithVisa(false) }}>
+                <div className="flex flex-row gap-3.5">
                   <Image src={bank} width={34} height={34} alt="visa-method" /> <Typography.Text>Chuyển khoản ngân hàng</Typography.Text>
                 </div>
                 {!payWithVisa ? (<Check size={28} />) : (null)}
@@ -64,12 +64,12 @@ const Payment = () => {
             </div>
           </div>
           {!payWithVisa ? (
-            <div className='bank-detail'>
+            <div className='pt-8'>
               <BankInfo />
             </div>
           ) :
             (
-              <div className='bank-info'>
+              <div className='flex flex-col gap-5 pt-8 pl-3 pr-3 pb-8 h-full'>
                 <div>
                   Chọn số tiền quyên góp
                 </div>
@@ -77,14 +77,12 @@ const Payment = () => {
               </div>
             )
           }
-
         </div>
-
       </SimpleGrid>
       <Footer>
         <SimpleGrid span={12}>
           <Button
-            className="btn-pay"
+            className=" bg-amber-400 w-full"
             onClick={success}
           ><Text size={"sm"} color="black">Tiến hành thanh toán</Text></Button>
         </SimpleGrid>

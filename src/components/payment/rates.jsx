@@ -44,7 +44,7 @@ const Rates = () => {
             item,
             index,
           ) => (
-            <Button size="md" variant='outline' className="btn-rate" key={index}>{item.rate}</Button>
+            <Button size="md" variant='outline' className="bg-white text-black border-transparent border-2 border-solid hover:border-sky-600" key={index}>{item.rate}</Button>
           ),
         )}
       </Space>

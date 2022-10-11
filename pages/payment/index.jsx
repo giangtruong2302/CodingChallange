@@ -3,7 +3,7 @@ import Payment from '../../src/components/payment'
 import { NotificationsProvider } from "@mantine/notifications"
 const PaymentPage = () => {
   return (
-    <div>
+    <div className="bg-slate-50 h-screen">
       <NotificationsProvider>
         <Payment />
       </NotificationsProvider>
