@@ -38,7 +38,7 @@ const Rates = () => {
   ]
   return (
     <>
-      <Space size={[8.65, 8]} wrap>
+      <Space size={[9, 8]} wrap>
         {rates.map(
           (
             item,

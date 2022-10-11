@@ -62,7 +62,7 @@ const BankInfo = () => {
                       description: { color: theme.black },
                       closeButton: {
                         color: theme.black,
-                        '&:hover': { backgroundColor: theme.colors.blue[7] },
+                        '&:hover': { backgroundColor: theme.colors.green[6] },
                       },
                     }),
                   });
