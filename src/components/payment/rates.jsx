@@ -44,7 +44,7 @@ const Rates = (props) => {
             item,
             index,
           ) => (
-            <Button radius={"xs"} size="sm" variant='outline' className="bg-white text-black border-transparent border-2 border-solid active:border-sky-600 focus:border-sky-600  hover:border-sky-600" key={index} onClick={() => props.getValueDonate(item.value)}><p className=" align-middle text-center pt-4 text-sm font-normal">{item.rate}₫</p></Button>
+            <Button radius={"xs"} size="sm" variant='outline' className=" min-w-max w-28 bg-white text-black border-transparent border-2 border-solid focus:border-sky-600  hover:border-sky-600" key={index} onClick={() => props.getValueDonate(item.value)}><p className=" align-middle text-center pt-3 text-xs font-normal">{item.rate}₫</p></Button>
           ),
         )}
       </Space>

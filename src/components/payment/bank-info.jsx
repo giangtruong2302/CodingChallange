@@ -27,7 +27,7 @@ const BankInfo = () => {
   }, [])
   console.log("bank info: ", bankInfo)
   return (
-    <div className="flex flex-col bg-white gap-3 pt-5 pl-3 pr-5">
+    <div className="flex flex-col pb-10 bg-white gap-3 pt-5 pl-3 pr-5">
       <div className=" text-slate-400 text-sm">Chi nhánh ngân hàng</div>
       <div className="text-sm">{bankInfo?.bank ?? "N/A"}</div>
       <div className="flex flex-row justify-between">

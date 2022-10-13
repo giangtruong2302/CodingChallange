@@ -4,7 +4,7 @@ import { Text, Button, Title } from '@mantine/core'
 import { ContextModalProps, ModalsProvider } from '@mantine/modals';
 import { NotificationsProvider } from "@mantine/notifications"
 const PaymentPage = () => {
-  const TestModal = ({ context, id, innerProps }) => (
+  const ModalNotification = ({ context, id, innerProps }) => (
     <div className='flex flex-col gap-3'>
       <Title order={5}>{innerProps.titleBody}</Title>
       <Text size="sm">{innerProps.modalBody}</Text>
@@ -17,7 +17,7 @@ const PaymentPage = () => {
   return (
     <div className="bg-slate-50 h-screen">
       <NotificationsProvider>
-        <ModalsProvider modals={{ demonstration: TestModal /* ...other modals */ }}>
+        <ModalsProvider modals={{ demonstration: ModalNotification /* ...other modals */ }}>
           <Payment />
         </ModalsProvider>
       </NotificationsProvider>
