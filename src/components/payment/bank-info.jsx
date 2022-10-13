@@ -75,7 +75,7 @@ const BankInfo = () => {
       </div>
       <div>
         <div>
-          <div className=" text-slate-400 text-sm">Tên tài khoản</div>
+          <div className=" text-slate-400 text-sm">Tên tài khoản </div>
           <div>{bankInfo?.name ?? "N/A"}</div>
         </div>
       </div>
