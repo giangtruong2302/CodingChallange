@@ -6,19 +6,15 @@ import axios from "axios"
 import fetch from "isomorphic-unfetch";
 
 const BankInfo = () => {
-  const [accountNumber, setAccountNumber] = useState("23022000")
+  const [accountNumber, setAccountNumber] = useState("191415477")
   const [bankInfo, setBankInfo] = useState()
 
   const callAPI = async () => {
     try {
 
       await axios.get('https://be-homework.vercel.app/api/bank', {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-          mode: 'no-cors',
-        }
-      }).then((res) => { alert("success") }).catch(() => {
+
+      }).then((res) => { setBankInfo(res.data) }).catch(() => {
         alert("error")
       })
 
@@ -27,15 +23,17 @@ const BankInfo = () => {
     }
   };
   useEffect(() => {
+    callAPI()
   }, [])
+  console.log("bank info: ", bankInfo)
   return (
     <div className="flex flex-col bg-white gap-3 pt-5 pl-3 pr-5">
       <div className=" text-slate-400 text-sm">Chi nhánh ngân hàng</div>
-      <div className="text-sm">Ngân hàng TMCP Việt Nam thịnh vượng (VP Bank) Hội sở</div>
+      <div className="text-sm">{bankInfo?.bank ?? "N/A"}</div>
       <div className="flex flex-row justify-between">
         <div>
           <div className=" text-slate-400 text-sm">Số tài khoản</div>
-          <div className="tai-khoan-content">{accountNumber}</div>
+          <div className="tai-khoan-content">{bankInfo?.account ?? "N/A"}</div>
         </div>
         <div >
           <CopyButton value={accountNumber}>
@@ -47,6 +45,7 @@ const BankInfo = () => {
                     icon: <IconCheck size={16} />,
                     message: 'Đã copy số tài khoản',
                     color: "green",
+                    radius: "md",
                     styles: (theme) => ({
                       closeButton: {
                         color: theme.black
@@ -67,7 +66,6 @@ const BankInfo = () => {
                     }),
                   });
                   copy();
-                  // callAPI();
                 }
                 }
               ><Text color="black" >{copied ? <div className="flex flex-row"><IconCheck />{"Copied STK"}</div> : 'Copy STK'}</Text></Button>
@@ -78,12 +76,12 @@ const BankInfo = () => {
       <div>
         <div>
           <div className=" text-slate-400 text-sm">Tên tài khoản</div>
-          <div>Công ty cổ phần Be group</div>
+          <div>{bankInfo?.name ?? "N/A"}</div>
         </div>
       </div>
       <div>
         <div className=" text-slate-400 text-sm">Nội dung chuyển tiền</div>
-        <div>{"Covid 19"}</div>
+        <div>{bankInfo?.content ?? "N/A"}</div>
       </div>
     </div>
   )

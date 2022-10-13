@@ -1,9 +1,9 @@
 import { Space } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import 'antd/dist/antd.css';
 import { Button } from '@mantine/core'
 
-const Rates = () => {
+const Rates = (props) => {
   const rates = [
     {
       id: 1,
@@ -44,7 +44,7 @@ const Rates = () => {
             item,
             index,
           ) => (
-            <Button radius={"xs"} size="sm" variant='outline' className="bg-white text-black border-transparent border-2 border-solid hover:border-sky-600" key={index}><p className=" align-middle text-center pt-4 text-sm font-normal">{item.rate}₫</p></Button>
+            <Button radius={"xs"} size="sm" variant='outline' className="bg-white text-black border-transparent border-2 border-solid active:border-sky-600 focus:border-sky-600  hover:border-sky-600" key={index} onClick={() => props.getValueDonate(item.value)}><p className=" align-middle text-center pt-4 text-sm font-normal">{item.rate}₫</p></Button>
           ),
         )}
       </Space>
